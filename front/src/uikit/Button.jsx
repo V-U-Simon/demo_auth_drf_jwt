@@ -31,9 +31,17 @@ export function ButtonLoading() {
   );
 }
 
-export function ButtonLogout({ children }) {
+export function ButtonWarning({ children }) {
   return (
     <ButtonBase className="bg-red-600 text-white hover:bg-red-500 w-24">
+      {children}
+    </ButtonBase>
+  );
+}
+
+export function ButtonNav({ children }) {
+  return (
+    <ButtonBase className="bg-gray-600 text-white hover:bg-gray-500 w-24">
       {children}
     </ButtonBase>
   );

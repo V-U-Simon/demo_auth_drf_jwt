@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { ButtonLogout } from "../uikit/Button";
+import { ButtonWarning } from "../uikit/Button";
 
-export function LogoutButton() {
+export function ButtonLogout() {
   return (
-    <ButtonLogout>
+    <ButtonWarning>
       <Link to={"/login"} className="nav-link">
         Logout
       </Link>
-    </ButtonLogout>
+    </ButtonWarning>
   );
 }
