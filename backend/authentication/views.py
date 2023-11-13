@@ -1,3 +1,5 @@
+from django.contrib.auth import get_user_model
+
 from rest_framework import viewsets
 from rest_framework import filters
 from rest_framework import status
@@ -14,8 +16,12 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import UserSerializer
 from .serializers import RegisterSerializer
 from .serializers import LoginSerializer
+from .serializers import login_schema
 
-from .models import User
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+
+User = get_user_model()
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -40,26 +46,14 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class LoginViewSet(ViewSet):
-    """
-    Result of request
-    {
-        "refresh": "eyJhbGciO...",
-        "access": "eyJhbGciOi...",
-        "user": {
-            "id": 1,
-            "username": "admin",
-            "email": "admin@admin.ru",
-            "isActive": true,
-            "created": "2023-11-03T10:17:49.617114Z",
-            "updated": "2023-11-03T10:17:49.615261Z",
-        },
-    }
-    """
-
     serializer_class = LoginSerializer
     permission_classes = (AllowAny,)
     http_method_names = ["post"]
 
+    @swagger_auto_schema(
+        request_body=LoginSerializer,
+        responses={200: "Successful response", 404: "User not found"},
+    )
     def create(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
 

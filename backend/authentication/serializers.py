@@ -6,8 +6,9 @@ from rest_framework_simplejwt.settings import api_settings
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import update_last_login
+from django.contrib.auth import get_user_model
 
-from .models import User
+User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
