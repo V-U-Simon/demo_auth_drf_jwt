@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  django-app-todo:
+    container_name: backend-drf-jwt
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+      - /app/.venv
+    ports:
+      - 8000:8000

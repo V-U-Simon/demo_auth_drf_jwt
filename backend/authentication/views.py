@@ -16,10 +16,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import UserSerializer
 from .serializers import RegisterSerializer
 from .serializers import LoginSerializer
-from .serializers import login_schema
 
 from drf_yasg.utils import swagger_auto_schema
-from drf_yasg import openapi
 
 User = get_user_model()
 
