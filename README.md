@@ -14,6 +14,13 @@ clone this project to your machine and run it with the following command
 docker-compose up
 ```
 
+Affter as you run container you can use this credentioals: In local SQLite is created superuser:
+
+```
+login: admin@admin.ru
+password: password
+```
+
 ## 🔎 Some details
 
 #### ➕ Additional CLAIMS to the token are added in `MyTokenObtainPairSerializer` serializer
